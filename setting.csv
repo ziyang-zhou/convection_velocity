@@ -1,0 +1,41 @@
+,0,,,,,,,
+project_folder,/home/ziyz1701/storage/CD_airfoil/3D_CD_lip_simulation,# The path of the project folder,,,,,,
+probe_folder,/home/ziyz1701/storage/CD_airfoil/3D_CD_lip_simulation/no_slip_wall_refined_tripped_0p36c_inlet_prof/spanwise/shear_layer_probe_processed,#name of the folder containing the probe data
+save_folder,./,# save directory of the data
+########## Freestream ############,,,,,,,,
+M_exp,0.05,#experimental mach number
+M_PF,0.2,#Powerflow simulated mach number
+chord,0.1356,#chord length
+U_0,16.0,#freestream velocity
+########## Coherence settings ############,,,,,,,,
+nb_chunks,18,#number of windows
+nb_through_flow_times,12,#number of through flow times to start at
+coherence_variable,'x_velocity'
+########## Coherence probe location ############,,,,,,,,
+delta_x_3,0.004,#space interval between probes in meters
+probe_list,"['m4', 'm3', 'm2', 'm1', '0', 'p1', 'p2', 'p3', 'p4']"
+########## Shear layer profile location ############,,,,,,,,
+location_list,['340'],#x coordinate w.r.t. lip of the measurement location
+shear_layer_profile_variable,'Velocity',#variable to be plotted
+folder_list,"['/no_slip_wall_refined_ver2_seed_0p12c_coarse','/no_slip_wall_refined_ver2_seed_0p36c_coarse','/no_slip_wall_refined_ver2_seed_0p60c_coarse']"
+name_list,"['0.12c','0.36c','0.60c']",#The list of labels which will be used for the final plot
+plot_colors,"['gray','gray','black']",#List of plot colors to be used
+plot_thicknesses,"['1.0','3.0','2.0']",#List of plot thicknesses to be used
+n_periods,5,#number of periods to resolve minimum frequency
+U_ref_list,"[16.75,16.72,16.63]"#maximum velocity magnitude in outlet profile of DNS,DNS-SLR,DNS-SLRT respectively
+########## Geometry extraction ############,,,,,,,,
+le_cut,-0.133,#leading edge limit of extraction
+te_cut,-0.00,#trailing edge limit of extraction
+include_pressure_side,FALSE,#whether or not to include the pressure side in the grid
+refinement_factor,1.0,#increase this factor if original resolution is not fine enough
+########## convection velocity ############,,,,,,,,
+streamwise_range_res,200,#number of points of stencil along the streamwise axis
+loc,24,#probe RMP number (7,9,21,24)
+displacement_thickness,"[0.000286817346486181,0.000328363166464611,0.000320075156494139]",#displ thickn of DNS,DNS-SLR,DNS-SLRT
+start_inst,21250,#start instance number
+filter_freq,"[50,150]",#frequency band for convection velocity
+ninst,10000,#number of instants to use for xcorr
+streamwise_range_ndim,10,#streamwise size of the xcorr stencil in units of displacement thickness
+span_size,0.12,#span size in terms of chord length
+max_del_star,0.00176700515795414,#choice of displacement thickness amongst probes 3,5,9,21,24. choice will affect size of grid pts in stencil
+chunk_size,100,#start instance number
